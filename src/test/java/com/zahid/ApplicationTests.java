@@ -31,7 +31,11 @@ class ApplicationTests {
             .andReturn().getRequest().getSession(false);
         assertNotNull(session);
         mvc.perform(get("/courses").session(session)).andExpect(status().isOk());
-        mvc.perform(get("/logout").session(session)).andExpect(status().is3xxRedirection());
+        mvc.perform(get("/logout").session(session).accept("text/html"))
+            .andExpect(status().is3xxRedirection()).andExpect(redirectedUrl("/login?logout"));
+        assertTrue(session.isInvalid(), "Logout must invalidate the authenticated session");
+        mvc.perform(get("/courses").accept("text/html"))
+            .andExpect(status().is3xxRedirection());
     }
     @Test void invalidLoginIsRejected() throws Exception {
         mvc.perform(post("/login").param("email", "student@example.com").param("password", "wrong"))
