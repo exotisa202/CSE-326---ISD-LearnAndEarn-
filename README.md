@@ -1,6 +1,33 @@
 # Learn and Earn
 
-A Spring Boot/Thymeleaf coursework web application for students and teachers. Source features include account registration/login, course creation and enrollment, lectures, assignments/submissions, questions and answers, and blogs.
+**A coursework learning platform for students and teachers.** Learn and Earn brings course discovery, enrollment and classroom activity into a server-rendered Java application.
+
+`Java` · `Spring Boot` · `Spring Security` · `Spring Data JPA` · `Thymeleaf` · `MySQL / H2`
+
+[Quick start](#local-synthetic-demo) · [Architecture](#architecture) · [Verification](docs/VERIFICATION.md)
+
+## What the project demonstrates
+
+- **Role-based experiences:** student and teacher accounts backed by Spring Security and BCrypt password encoding.
+- **Course lifecycle:** source workflows for course creation, discovery and enrollment.
+- **Classroom interactions:** lecture, assignment, submission and Q&A models, controllers and views.
+- **Layered Java application design:** MVC controllers, service classes and JPA repositories separate HTTP handling from persistence.
+- **Self-contained review setup:** a synthetic H2 demo profile replaces dependence on historical external CSV account imports.
+
+These are capabilities represented in the codebase, not a claim that every workflow has passed end-to-end testing. The verification log records the current test status explicitly.
+
+## Architecture
+
+```mermaid
+flowchart LR
+    Browser[Browser] --> MVC[Spring MVC + Thymeleaf]
+    MVC --> Security[Spring Security]
+    MVC --> Services[Application services]
+    Services --> JPA[Spring Data JPA]
+    JPA --> DB[(H2 demo / MySQL development)]
+```
+
+The `demo` profile creates only fictional accounts and a sample course. The normal configuration supports a dedicated MySQL development database without embedding passwords in source.
 
 ## Local synthetic demo
 
@@ -69,3 +96,4 @@ docker run --rm -p 127.0.0.1:8080:8080 learn-and-earn-demo
 ```
 
 The build runs tests; the runtime uses the synthetic demo profile. Docker execution has not been verified in the preparation environment.
+
