@@ -4,8 +4,8 @@ Environment: isolated cloud workspace with JDK 21 and a temporary Maven dependen
 
 - Static configuration review: completed. Runtime database credentials are environment-driven; synthetic H2 profile is isolated from the legacy network seeders.
 - `git diff --check`: passed.
-- Maven `test`: **in progress**, dependencies are still resolving from Maven Central. This is not a passing build claim.
-- Added tests: synthetic accounts and roles, login page, student login, course browsing, logout, and invalid-login rejection. Results are pending.
+- Maven `test`: **not completed in the preparation environment**. Application dependencies downloaded, but slow build-plugin dependency resolution prevented reaching compilation/test execution before handoff. No test result or Surefire report was produced; this is neither a passing-build claim nor a code-test failure.
+- Added tests: synthetic accounts and roles, login page, student login, course browsing, logout, and invalid-login rejection. Execution remains unverified.
 - Original MySQL workflows: **not tested**.
 - Docker/Podman: not installed in the preparation workspace. Dockerfile supplied but not executed.
 - Browser-based walkthrough: **not performed**.
