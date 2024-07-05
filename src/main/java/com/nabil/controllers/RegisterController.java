@@ -47,8 +47,7 @@ public class RegisterController {
             return "register-failure";
         }
         
-        System.out.println(account);
-        System.out.println(form.toString());
+        // Do not log registration fields or passwords.
         logger.info("Account Created");
         
         return "register-success";

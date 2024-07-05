@@ -13,6 +13,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 
 import com.nabil.models.Submission;
 import com.nabil.services.SubmissionService;
@@ -21,6 +22,7 @@ import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVRecord;
 
 @Component
+@ConditionalOnProperty(name="app.remote-seeding.enabled", havingValue="true")
 public class SubmissionSeeder implements CommandLineRunner{
     private static String DATA_URL = "https://raw.githubusercontent.com/faiyaz1469/Files/main/Submission4.csv";
 

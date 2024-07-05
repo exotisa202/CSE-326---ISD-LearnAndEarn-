@@ -15,6 +15,7 @@
 	<description>Demo project for Spring Boot</description>
 	<properties>
 		<java.version>11</java.version>
+		<lombok.version>1.18.36</lombok.version>
 		<!-- <maven.compiler.source>17</maven.compiler.source> -->
 		<!-- <maven.compiler.target>17</maven.compiler.target> -->
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -138,7 +139,7 @@
 				<artifactId>exec-maven-plugin</artifactId>
 				<version>3.0.0</version>
 				<configuration>
-					<mainClass>com.zahid.Application</mainClass>
+					<mainClass>com.nabil.Application</mainClass>
 				</configuration>
 			</plugin>   
 		</plugins>
